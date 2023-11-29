@@ -113,11 +113,8 @@ func saveConfigTemporarily(mc *mobileconfig.Config) (fname string, err error) {
 		return
 	}
 
-	if err = mc.WriteOut(f); err != nil {
-		_ = f.Close()
-		return
-	}
+	mc.WriteOut(f)
+	
 	_ = f.Close()
-
 	return
 }
